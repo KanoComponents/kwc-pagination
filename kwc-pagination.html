@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="kwc-pagination">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h2>Hello [[prop1]]!</h2>
+    </template>
+
+    <script>
+        /**
+         * `kwc-pagination`
+         * UI for pagination
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class KwcPagination extends Polymer.Element {
+            static get is() { return 'kwc-pagination'; }
+            static get properties() {
+                return {
+                    prop1: {
+                        type: String,
+                        value: 'kwc-pagination',
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(KwcPagination.is, KwcPagination);
+    </script>
+</dom-module>
