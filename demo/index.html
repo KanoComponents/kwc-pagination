@@ -1,30 +1,118 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>kwc-pagination demo</title>
+        <title>kwc-pagination demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../kwc-pagination.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+        <link rel="import" href="../kwc-pagination.html">
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic kwc-pagination demo</h3>
-      <demo-snippet>
-        <template>
-          <kwc-pagination></kwc-pagination>
-        </template>
-      </demo-snippet>
-    </div>
-  </body>
+        <custom-style>
+            <style is="custom-style" include="demo-pages-shared-styles"></style>
+        </custom-style>
+    </head>
+    <body>
+        <div class="vertical-section-container centered">
+            <h3>Basic kwc-pagination demo</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination
+                        id="basic-example"
+                        total-pages="2"
+                        current-page="1">
+                    </kwc-pagination>
+                </template>
+            </demo-snippet>
+            <script type="text/javascript">
+                (() => {
+                    let paginationEl = document.querySelector('#basic-example');
+                    paginationEl.addEventListener('go-to-page', (e) => {
+                        console.log('go to page', e.detail);
+                        paginationEl.set('currentPage', e.detail);
+                    });
+                })();
+            </script>
+        </div>
+
+        <div class="vertical-section-container centered">
+            <h3>kwc-pagination pagination controls</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination
+                        id="controls-example"
+                        total-pages="20"
+                        current-page="1"
+                        range="5"
+                        pagination-controls>
+                    </kwc-pagination>
+                </template>
+                <script type="text/javascript">
+                    (() => {
+                        let paginationEl = document.querySelector('#controls-example');
+                        paginationEl.addEventListener('go-to-page', (e) => {
+                            console.log('go to page', e.detail);
+                            paginationEl.set('currentPage', e.detail);
+                        });
+                    })();
+                </script>
+            </demo-snippet>
+        </div>
+
+        <div class="vertical-section-container centered">
+            <h3>kwc-pagination jump controls</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination
+                        id="jump-example"
+                        total-pages="20"
+                        current-page="1"
+                        range="3"
+                        pagination-controls
+                        jump-controls>
+                    </kwc-pagination>
+                </template>
+                <script type="text/javascript">
+                    (() => {
+                        let paginationEl = document.querySelector('#jump-example');
+                        paginationEl.addEventListener('go-to-page', (e) => {
+                            console.log('go to page', e.detail);
+                            paginationEl.set('currentPage', e.detail);
+                        });
+                    })();
+                </script>
+            </demo-snippet>
+        </div>
+
+        <div class="vertical-section-container centered">
+            <h3>kwc-pagination start page</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination
+                        id="start-example"
+                        total-pages="20"
+                        current-page="7"
+                        starts-on="5"
+                        range="4"
+                        pagination-controls
+                        jump-controls>
+                    </kwc-pagination>
+                </template>
+                <script type="text/javascript">
+                    (() => {
+                        let paginationEl = document.querySelector('#start-example');
+                        paginationEl.addEventListener('go-to-page', (e) => {
+                            console.log('go to page', e.detail);
+                            paginationEl.set('currentPage', e.detail);
+                        });
+                    })();
+                </script>
+            </demo-snippet>
+        </div>
+
+    </body>
 </html>
