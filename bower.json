@@ -5,7 +5,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "iron-flex-layout": "^2.0.3",
-    "kwc-button": "KanoComponents/kwc-button#^2.1.0"
+    "kwc-button": "KanoComponents/kwc-button#^2.1.0",
+    "kwc-style": "KanoComponents/kwc-style#^2.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
