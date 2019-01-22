@@ -1,23 +1,30 @@
 {
   "description": "UI for pagination",
   "name": "@kano/kwc-pagination",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0",
   "resolutions": {
-    "inherits": "2.0.3",
-    "samsam": "1.1.3",
-    "supports-color": "3.1.2",
-    "type-detect": "1.0.0",
-    "@webcomponents/webcomponentsjs": "2.0.0-beta.2"
+    "eslint-config-airbnb-base": "13.1.0"
   },
   "main": "kwc-pagination.js",
+  "scripts": {
+    "serve": "es6-server",
+    "serve-test": "web-tester serve **/*.test.js",
+    "test": "web-tester run **/*.test.js",
+    "test-ci": "yarn run --silent test > test-results.xml",
+    "lint": "eslint *.js",
+    "lint-ci": "yarn lint -f checkstyle -o eslint.xml",
+    "prepublishOnly": "yarn run test"
+  },
   "dependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-flex-layout": "^3.0.0-pre.18",
-    "@kano/kwc-button": "^3.0.0-beta.1"
+    "@kano/styles": "^1.0.0-alpha.0",
+    "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
-    "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
-    "wct-browser-legacy": "^0.0.1-pre.11",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "@kano/es6-server": "^1.0.1",
+    "@kano/eslint-config": "^1.0.0",
+    "@kano/web-tester": "^1.0.0-alpha.6",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "eslint": "^5.12.1",
+    "eslint-plugin-import": "^2.15.0"
   }
 }
