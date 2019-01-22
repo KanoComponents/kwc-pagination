@@ -8,23 +8,41 @@
 
         <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-        <link rel="import" href="../kwc-pagination.html">
+        <script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>script>styles.html">
+        <script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+        <script type="module" src="../kwc-pagination.js"></script>
 
         <custom-style>
             <style is="custom-style" include="demo-pages-shared-styles"></style>
         </custom-style>
     </head>
-    <body>
-        <div class="vertical-section-container centered">
+    <body></body><!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
+            <style is="custom-style" include="demo-pages-shared-styles"></style>
+        </custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>wc-pagination demo</h3>
+            <demo-snippet>
+                <template>
+        <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
             <h3>Basic kwc-pagination demo</h3>
             <demo-snippet>
                 <template>
-                    <kwc-pagination
-                        id="basic-example"
-                        total-pages="2"
-                        current-page="1">
+                    <kwc-pagination id="basic-example" total-pages="2" current-page="1">
                     </kwc-pagination>
                 </template>
             </demo-snippet>
@@ -36,19 +54,25 @@
                         paginationEl.set('currentPage', e.detail);
                     });
                 })();
-            </script>
-        </div>
+            &lt;/script>
+        </div>`;
 
-        <div class="vertical-section-container centered">
-            <h3>kwc-pagination pagination controls</h3>
+document.body.appendChild($_documentContainer.content);
+</script>etail);
+    paginationEl.set('currentPage', e.detail);
+});
+</script>agination pagination controls</h3>
             <demo-snippet>
                 <template>
                     <kwc-pagination
-                        id="controls-example"
-                        total-pages="20"
-                        current-page="1"
-                        range="5"
-                        pagination-controls>
+        <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+            <h3>kwc-pagination pagination controls</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination id="controls-example" total-pages="20" current-page="1" range="5" pagination-controls="">
                     </kwc-pagination>
                 </template>
                 <script type="text/javascript">
@@ -59,21 +83,27 @@
                             paginationEl.set('currentPage', e.detail);
                         });
                     })();
-                </script>
+                &lt;/script>
             </demo-snippet>
-        </div>
+        </div>`;
 
-        <div class="vertical-section-container centered">
-            <h3>kwc-pagination jump controls</h3>
+document.body.appendChild($_documentContainer.content);
+</script>.detail);
+    paginationEl.set('currentPage', e.detail);
+});
+</script>ation jump controls</h3>
             <demo-snippet>
                 <template>
                     <kwc-pagination
                         id="jump-example"
-                        total-pages="20"
-                        current-page="1"
-                        range="3"
-                        pagination-controls
-                        jump-controls>
+        <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+            <h3>kwc-pagination jump controls</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination id="jump-example" total-pages="20" current-page="1" range="3" pagination-controls="" jump-controls="">
                     </kwc-pagination>
                 </template>
                 <script type="text/javascript">
@@ -84,22 +114,28 @@
                             paginationEl.set('currentPage', e.detail);
                         });
                     })();
-                </script>
+                &lt;/script>
             </demo-snippet>
-        </div>
+        </div>`;
 
-        <div class="vertical-section-container centered">
-            <h3>kwc-pagination start page</h3>
-            <demo-snippet>
+document.body.appendChild($_documentContainer.content);
+</script>', (e) => {
+    console.log('go to page', e.detail);
+    paginationEl.set('currentPage', e.detail);
+});
+</script>>
                 <template>
                     <kwc-pagination
                         id="start-example"
                         total-pages="20"
-                        current-page="7"
-                        starts-on="5"
-                        range="4"
-                        pagination-controls
-                        jump-controls>
+        <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+            <h3>kwc-pagination start page</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-pagination id="start-example" total-pages="20" current-page="7" starts-on="5" range="4" pagination-controls="" jump-controls="">
                     </kwc-pagination>
                 </template>
                 <script type="text/javascript">
@@ -110,9 +146,16 @@
                             paginationEl.set('currentPage', e.detail);
                         });
                     })();
-                </script>
+                &lt;/script>
             </demo-snippet>
-        </div>
+        </div>`;
 
-    </body>
-</html>
+document.body.appendChild($_documentContainer.content);
+</script>/../../@polymer/iron-demo-helpers/demo-snippet.js';
+import '../kwc-pagination.js';
+let paginationEl = document.querySelector('#start-example');
+paginationEl.addEventListener('go-to-page', (e) => {
+    console.log('go to page', e.detail);
+    paginationEl.set('currentPage', e.detail);
+});
+</script>
